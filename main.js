@@ -1,3 +1,46 @@
+let currentInput = '';
+let nextInput = '';
+let operator = '';
+
+document.addEventListener('DOMContentLoaded', () => {
+    const display = document.querySelector('.display');
+    const digits = document.querySelectorAll('.digits');
+    const operation = document.querySelectorAll('.operator');
+    const clearBtn = document.querySelector('.clear');
+    const equals = document.querySelector('.equals');
+
+    digits.forEach(digit => {
+        digit.addEventListener('click', (e) => {
+            limitDigits(digit.textContent);
+            display.textContent = currentInput;
+        })
+    });
+
+    operation.forEach(button => {
+        button.addEventListener('click', (e) => {
+            display.textContent += button.textContent;
+            operator = button.textContent;
+        })
+    })
+
+    equals.addEventListener('click', (e) => {
+        operate(operator, currentInput, nextInput);
+    })
+
+    clearBtn.addEventListener('click', (e) => {
+        currentInput = '';
+        nextInput = '';
+        operator = '';
+        display.textContent = '';
+    })
+})
+
+function limitDigits(num) {
+    if (currentInput.length <= 15){
+        currentInput += num;
+    }
+}
+
 function add(a, b) {
     return a + b;
 }
@@ -17,9 +60,9 @@ function divide(a, b) {
     return a / b;
 }
 
-let num1;
-let num2;
-let operator;
+// let num1;
+// let num2;
+// let operator;
 
 function operate(operator, num1, num2){
     switch(operator){
