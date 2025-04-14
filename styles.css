@@ -26,6 +26,10 @@ button:hover {
 }
 
 .clear {
+    background-color: yellow;
+}
+
+.operator, .equals {
     background-color: orange;
 }
 

@@ -1,6 +1,7 @@
 let previousValue = '';
 let currentValue = '';
 let operator = '';
+let resetDisplay = false;
 
 const display = document.querySelector('.display');
 const digits = document.querySelectorAll('.digits');
@@ -10,6 +11,13 @@ const equals = document.querySelector('.equals');
 
 digits.forEach(digit => {
     digit.addEventListener('click', (e) => {
+        if (currentValue.length >= 15) return;
+
+        if (resetDisplay) {
+            display.textContent = '';
+            currentValue = '';
+            resetDisplay = false;
+        }
         display.textContent += digit.textContent;
         currentValue += digit.textContent;
     })
@@ -31,6 +39,7 @@ operation.forEach(op => {
 equals.addEventListener('click', (e) => {
     if (currentValue === '' || previousValue === '') return;
     display.textContent = operate(operator, +previousValue, +currentValue);
+    resetDisplay = true;
 });
 
 clearBtn.addEventListener('click', (e) => {
