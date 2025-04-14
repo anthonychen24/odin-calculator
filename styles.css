@@ -17,9 +17,17 @@ button {
     width: 100px;
     height: 100px;
     border-radius: 10px;
-    font-size: 18px;
+    font-size: 40px;
 }
 
+button:hover {
+    background-color: lightgrey;
+    cursor: pointer;
+}
+
+.clear {
+    background-color: orange;
+}
 
 .calculator {
     display: flex;
@@ -39,11 +47,14 @@ button {
 }
 
 .display {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
     flex: 1 0 auto;
     border: 1px solid black;
     border-radius: 10px;
     background-color: white;
-    font-size: 24px;
-    text-align: right;
     max-width: 307px;
+    font-size: 32px;
+    padding-top: 30px;
 }
