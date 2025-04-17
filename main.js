@@ -14,6 +14,7 @@ const equals = document.querySelector('.equals');
 digits.forEach(digit => {
     digit.addEventListener('click', (e) => {
         if (currentValue.length >= 19) return;
+        if (digit.textContent === '.' && currentValue.includes('.')) return;
 
         if (justEvaluated) {
             // Full reset for new calculation
@@ -24,7 +25,7 @@ digits.forEach(digit => {
             display.textContent = '';
             justEvaluated = false;
         }
-
+        
         if (resetDisplay) {
             display.textContent = '';
             currentValue = '';
