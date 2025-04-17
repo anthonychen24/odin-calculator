@@ -52,7 +52,7 @@ button:hover {
 
 .display {
     display: flex;
-    justify-content: flex-end;
+    /* justify-content: flex-end; */
     align-items: flex-end;
     flex: 1 0 auto;
     border: 1px solid black;
@@ -61,4 +61,5 @@ button:hover {
     max-width: 307px;
     font-size: 32px;
     padding-top: 30px;
+    overflow: hidden;
 }
